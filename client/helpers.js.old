@@ -1,5 +1,0 @@
-Template.featurePriorityChange.events({
-  'click .check-out': function () {
-    // addBookToCheckoutCart(this._id);
-  }
-});

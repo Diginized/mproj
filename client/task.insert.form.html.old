@@ -1,0 +1,38 @@
+<template name="insertTaskForm">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="titlepreview">Task 1:</h4> {{previewtitle}}
+              </div>{{taskid}}
+              <div class="panel-body">
+                 {{# autoForm id="newFeature" type="insert" collection="Collections.Features" template="form-horizontal"}}
+                    <div class="row">
+                      <div class="col-md-3">
+                        {{> afQuickField name="tasks.$.status" afFieldInput-placeholder="schemaLabel" template="form-inline form-control"}}
+                      </div>
+                      <div class="col-md-3">
+                        {{> afQuickField name="tasks.$.priority" afFieldInput-placeholder="schemaLabel"  }}
+                      </div>
+                      <div class="col-md-3">
+                        {{> afQuickField name="tasks.$.type" afFieldInput-placeholder="schemaLabel" template="form-inline form-control"}}
+                      </div>
+                      <div class="col-md-3">
+                        {{> afQuickField name="tasks.$.loepoints" afFieldInput-placeholder="schemaLabel" template="form-inline form-control"}}
+                      </div>
+                    </div>
+
+                    {{> afQuickField name="tasks.$.title" id="tasktitle" class="tasktitle" afFieldInput-placeholder="schemaLabel"  label=false}}
+                    <!-- <input name="testfield" placeholder="testme" id="testfield" /> -->
+
+                    {{> afQuickField name="tasks.$.description" rows=4 afFieldInput-placeholder="schemaLabel"  label=false}}
+
+                    {{> afQuickField name="tasks.$.comments" rows=4 afFieldInput-placeholder="schemaLabel"  label=false}}
+                    
+                  {{/autoForm}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+</template>

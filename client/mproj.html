@@ -1,0 +1,61 @@
+<head>
+  <title>mproj</title>
+</head>
+
+<body>
+	{{> loginButtons}}
+  
+  	{{#if currentUser}}
+  		<nav class="navbar navbar-default navbar-inverse" role="navigation">
+  		<div class="container">
+  			<div class="navbar-header">
+  				<a class="navbar-brand"
+ href="/">MPM</a>
+   			</div>
+   			<div class="collapse navbar-collapse" id="mainmenu">
+          {{> mainMenu}}
+        </div>
+      </div>
+      </nav>
+      <div class="container">
+          <!-- {{> tabular table=TabularTables.Features class="table table-striped table-bordered table-condensed"}} -->
+
+
+          <!-- {{> insertFeatureForm}} -->
+
+      </div>
+
+
+    {{/if}}
+
+</body>
+
+<template name="home">
+  This is the homepage
+</template>
+
+<template name="mainMenu">
+          <ul class="nav navbar-nav">
+            <li><a href="/featuretable">Feature Table</a></li>
+            <li><a href="/addfeature">Add Feature</a></li>
+            <li><a href="/addtask">Add Task</a></li>
+            <li><a href="/showfeatures">Show Features</a></li>
+            <li></li>
+          </ul>
+</template>
+
+
+
+<template name="addFeature">
+  
+</template>
+
+
+
+
+
+<template name="editTaskForm">
+  
+</template>
+
+

@@ -1,0 +1,248 @@
+
+// Schemas = {};
+
+// //Features schema included in another file
+// Schemas.Features = new SimpleSchema({
+//     title: {
+//       type: String,
+//       label: "Title",
+//       max: 300
+//     },
+//     description: {
+//       type: String,
+//       label: "Description",
+//       optional: true,
+//       autoform: {
+//         rows:5
+//       }
+//     },
+//     priority: {
+//       type: String,
+//       label: "Priority",
+//       autoform: {
+//         options: [
+//           {label: "Wishlist", value: "wishlist"},
+//           {label: "Minor", value: "minor"},
+//           {label: "Normal", value: "normal"},
+//           {label: "Important", value: "important"},
+//           {label: "Critical", value: "critical"}
+//         ]
+//       }
+//     },
+//     'priority.$': {
+//       type: String,
+//       label: "Priority"
+//     },
+//     tasks:{
+//       type: Array,
+//       optional: true
+//     },
+//         'tasks.$': {
+//           type: Object
+//         },
+//         'tasks.$.title': {
+//           type: String,
+//           label: "Title"
+//         },
+//         'tasks.$.type': {
+//           type: String,
+//           label: "",
+//           autoform: {
+//             options: [
+//               {label: "Feature", value: "feature"},
+//               {label: "Bug", value: "bug"},
+//               {label: "Improvement", value: "improvement"},
+//               {label: "Question", value: "question"}        
+//             ]
+//           }
+//         },
+//         'tasks.$.priority': {
+//           type: Number,
+//           label: "Priority"
+//         },
+//         'tasks.$.description': {
+//           type: String,
+//           label: "Description",
+//           autoform: {
+//             rows:5
+//           }
+//         },
+//         'tasks.$.successcriteria': {
+//           type: String,
+//           label: "Success Criteria",
+//           autoform: {
+//             rows:5
+//           }
+//         },
+//         'tasks.$.status': {
+//           type: String,
+//           label: "Status",
+//           autoform: {
+//             options: [
+//               {label: "New", value: "feature"},
+//               {label: "In Progress", value: "bug"},
+//               {label: "Ready for Test", value: "ready for test"},
+//               {label: "Closed", value: "closed"},
+//               {label: "Needs Info", value: "needs info"},
+//               {label: "Postponed", value: "postponed"},
+//               {label: "Rejected", value: "rejected"}
+//             ]
+//           }
+//         },
+//         'tasks.$.loepoints': {
+//           type: Number,
+//           label: "LOE Points",
+//           optional: true,
+//           decimal: true
+//         },
+//         'tasks.$.claimedby': {
+//           type: String,
+//           label: "Claimed By",
+//           optional: true
+//         },
+//         'tasks.$.completedby': {
+//           type: String,
+//           label: "Completed By",
+//           optional: true
+//         },
+//         'tasks.$.comments': {
+//           type: String,
+//           label: "Comments",
+//           optional: true
+//         },
+//         // 'tasks.$.comments': {
+//         //   type: Array,
+//         //   label: "Comments",
+//         //   optional: true
+//         // },
+//         //     'tasks.$.comments.$': {
+//         //       type: Object
+//         //     },
+//         //     'tasks.$.comments.$.userId':{
+//         //       type: String,
+//         //       label: ""
+//         //     },
+//         //     'tasks.$.comments.$.date':{
+//         //       type: Date,
+//         //       label: ""
+//         //     },
+//         //     'tasks.$.comments.$.comment':{
+//         //       type: String,
+//         //       label: "",
+//         //       autoform: {
+//         //         rows:5
+//         //       }
+//         //     },        
+//     comments: {
+//       type: Array,
+//       optional:true
+//     },
+//         'comments.$': {
+//           type: Object
+//         },
+//         'comments.$.userId':{
+//           type: String,
+//           label: ""
+//         },
+//         'comments.$.date':{
+//           type: Date,
+//           label: "",
+//           optional:true
+//         },
+//         'comments.$.comment':{
+//           type: String,
+//           label: "",
+//           autoform: {
+//             rows:5
+//           }
+//         }
+// });
+
+
+
+// Collections = {};
+
+// Features = Collections.Features = new Mongo.Collection("Features");
+
+// Features.attachSchema(Schemas.Features);
+
+
+// Features.allow({
+//   insert: function(){
+//     return true;
+//   },
+//   remove: function(){
+//     return true;
+//   }
+// });
+
+if (Meteor.isClient) {
+  // Meteor.subscribe("Features");
+
+  // counter starts at 0
+  Session.setDefault('counter', 0);
+
+  Template.insertTaskForm.events({
+    'keyup .tasktitle': function(){ 
+      if(tasktitle.value == ''){
+        $(".titlepreview").html("Enter a Task Below");
+      }else{
+        $(".titlepreview").html(tasktitle.value);
+        Session.set('titlevar', tasktitle.value);
+
+      }
+    },
+    'keyup testfield': function(){
+        event.target.tasktitle
+    }
+  });
+
+  Template.insertTaskForm.helpers({
+      previewtitle: Session.get('titlevar')
+      // previewtitle: Meteor.subscribe("Features")
+  });
+
+  Template.editTaskForm.helpers({
+    taskid: function (){
+      return Session.get('taskid')
+    }
+  });
+
+  // Template.insertFeatureForm.Collections = function() {
+  //   return "hi";
+  // };
+  // Template.insertFeatureForm.Schemas = function() {
+  //   return "hi";
+  // };
+
+  // Template.insertFeatureForm.helpers({
+  //   Collections: function () {
+  //     return "hi";
+  //   }
+  // });
+
+  // Template.insertFeatureForm.helpers({
+  //   Schemas: function () {
+  //     return "hi";
+  //   }
+  // });
+  
+}
+
+if (Meteor.isServer) {
+  // Meteor.publish("Features", function () {
+  //   // return Features.find({userId: this.userId()}).fetch();
+  // });
+  Meteor.startup(function () {
+    // code to run on server at startup
+    // Meteor.publish('features', function(){
+    //   return Features.find();
+    // });
+  });
+  Meteor.methods({
+    // Methods go here
+
+
+
+  });
+}

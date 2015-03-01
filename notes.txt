@@ -1,0 +1,13 @@
+notes.txt
+
+first, figure out how to add and display features.  
+then edit features
+then add and display tasks
+then how to edit tasks
+
+display in a non-edit mode
+don't focus too much on using the schema tool 
+
+features could be stories.  They are the description of what should be built.
+Tasks are the steps required to get there.  They are associated with only one feature. 
+database should be listed as a single feature with a bunch of sub-tasks, rather than 

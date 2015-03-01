@@ -1,0 +1,42 @@
+<template name="insertFeatureForm">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4>Enter a Feature</h4>
+              </div>
+              <div class="panel-body">
+                <!-- {{> quickForm collection="Collections.Features"}} -->
+                  {{# autoForm id="newFeature" type="insert" collection="Collections.Features" template="form-horizontal"}}
+                    {{> afQuickField name="title" afFieldInput-placeholder="schemaLabel"  label=false}}
+                    {{> afQuickField name="priority" afFieldInput-placeholder="schemaLabel" template="form-inline form-control" label=false rows=6}}
+                    {{> afQuickField name="description" rows=4 afFieldInput-placeholder="schemaLabel"  label=false}}
+                  {{/autoForm}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- {{> insertTaskForm }} -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4>Enter Comments for this Feature</h4>
+              </div>
+              <div class="panel-body">
+
+                  {{# autoForm id="newFeature" type="insert" collection="Collections.Features" template="form-horizontal"}}
+                    {{> afQuickField name="title" afFieldInput-placeholder="schemaLabel"  label=false}}
+                    {{> afQuickField name="priority" afFieldInput-placeholder="schemaLabel" template="form-inline form-control" label=false rows=6}}
+                    {{> afQuickField name="description" rows=4 afFieldInput-placeholder="schemaLabel"  label=false}}
+                  {{/autoForm}}
+
+                 
+              </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+</template>

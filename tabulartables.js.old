@@ -1,0 +1,41 @@
+TabularTables = {};
+
+Meteor.isClient && Template.registerHelper('TabularTables', TabularTables);
+
+TabularTables.Features = new Tabular.Table({
+  name: "FeatureList",
+  collection: Features,
+  columns: [
+    {data: "comments.$.date", title: "C.Date"},
+    {data: "comments.$.userId", title: "C.User"},
+    {data: "comments.$.comment", title: "Comment"},
+    {data: "title", title: "Feature"},
+    {data: "description", title: "F.Desc"},
+    {data: "priority", title: "F.Pri"},
+  
+
+
+
+    // {data: "tasks.$.title", title: "Task"},
+    // {data: "tasks.$.description", title: "T.Desc"},
+    // {data: "tasks.$.type", title: "T.Type"},
+    // {data: "tasks.$.priority", title: "T.Pri"},
+    // {data: "tasks.$.loepoints", title: "T.LOE"},
+  
+    // {
+    //   data: "lastCheckedOut",
+    //   title: "Last Checkout",
+    //   render: function (val, type, doc) {
+    //     if (val instanceof Date) {
+    //       return moment(val).calendar();
+    //     } else {
+    //       return "Never";
+    //     }
+    //   }
+    // },
+    // {data: "summary", title: "Summary"},
+    // {
+    //   tmpl: Meteor.isClient && Template.featurePriorityChange
+    // }
+  ]
+});

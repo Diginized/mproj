@@ -1,0 +1,20 @@
+<template name="showFeatures">
+	<h1>Features</h1>
+	<table width="100%">
+		<tr><th>Actions</th><th width="200">Title</th><th width="100">Priority</th><th>Description</th></tr>
+		{{#each features}}
+			<tr>
+				<td><a href="/editfeature/{{_id}}">edit</a></td>
+				<td>{{title}}</td>
+				<td>{{status}}</td>
+				<td>{{description}}</td>
+			</tr>
+		{{/each}}
+	</table>
+	<!-- {{feature}} -->
+</template>
+
+
+
+
+

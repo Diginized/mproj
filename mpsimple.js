@@ -16,13 +16,6 @@ if (Meteor.isClient) {
   });
   
   Template.editFeature.helpers({
-      'features': function(){
-        // return [
-        //   {_id: "1", title: "test", status: "Minor", description: "this is my favorite feature"},
-        //   {_id: "2", title: "a second feature", status: "Wishlist", description: "I like this one as well"}
-        // ] 
-        return Features.find(Session.get('featureid'))
-      },
       'status': function(status){
         return this.status === status;
       }

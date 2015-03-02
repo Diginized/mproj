@@ -1,3 +1,9 @@
+// Global router config
+Router.configure({
+  loadingTemplate: 'loading'
+});
+
+
 // Router.route('/add');
 
 Router.route('/', function () {
@@ -19,14 +25,29 @@ Router.route('/addfeature', function(){
 	this.render('insertFeatureForm');
 });
 
-Router.route('/editfeature/:featureid', function(){
-	this.render('editFeature');
-	Session.set('featureid', this.params.featureid );
+// Router.route('/editfeature/:featureid', function(){
+// 	this.render('editFeature', {
+// 		notFoundTemplate: "featureNotFound"
+// 		// waitOn: function() {
+// 		// 	return Meteor.subscribe("Features");
+// 		// },
+// 		// data: function() {
+// 		// 	templateData = {features: Features.find({_id: "86t6WerrwxPoTyyNn"}) };
+// 	 //    	return templateData;
+// 	 //  	}
+// 	});
+// });
+
+
+// Data context from a collection
+Router.route('editFeature', {  //first line points to the template name (binding)
+	path: 'authors/:featureid', 
+  	data: function() {
+    	templateData = { features: Features.find({_id: this.params.featureid}) };  //features in this case points to the EACH statement
+    	return templateData;
+  	}
 });
 
-Router.route('/editfeature/', function(){
-	this.render('editFeature');
-});
 
 Router.route('/showfeatures', function(){
 	this.render('showFeatures');
